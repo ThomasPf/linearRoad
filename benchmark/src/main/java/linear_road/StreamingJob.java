@@ -63,7 +63,7 @@ public class StreamingJob {
 				.flatMap(new TollCalculator(config)).name("Toll");
 
 		// execute program
-		env.execute("FlinkTuple LinearRoad");
+		env.execute("Antonis LinearRoad");
 	}
 
 	/**

@@ -2,9 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>linear_road</groupId>
-  <artifactId>antonis_linerar_road</artifactId>
-  <name>Antonis Linear Road</name>
-  <version>0.1</version>
+  <artifactId>linerar_road</artifactId>
+  <name>Linear Road Implementation</name>
+  <version>0.2</version>
+  <url>https://github.com/antonis-papaioannou/linearRoad</url>
   <build>
     <plugins>
       <plugin>
@@ -77,6 +78,10 @@
           <groupId>org.apache.flink</groupId>
         </exclusion>
         <exclusion>
+          <artifactId>flink-shaded-asm</artifactId>
+          <groupId>org.apache.flink</groupId>
+        </exclusion>
+        <exclusion>
           <artifactId>commons-lang3</artifactId>
           <groupId>org.apache.commons</groupId>
         </exclusion>
@@ -101,11 +106,11 @@
           <groupId>org.apache.flink</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>flink-shaded-guava</artifactId>
+          <artifactId>flink-clients_2.11</artifactId>
           <groupId>org.apache.flink</groupId>
         </exclusion>
         <exclusion>
-          <artifactId>flink-core</artifactId>
+          <artifactId>flink-shaded-guava</artifactId>
           <groupId>org.apache.flink</groupId>
         </exclusion>
         <exclusion>
