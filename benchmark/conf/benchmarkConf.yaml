@@ -15,6 +15,6 @@ zookeeper.port: 2181
 
 redis.host: "127.0.0.1"
 #redis.host: "192.168.20.2"
-redis.cluster: true
+redis.cluster: false
 
 monitor.operators: false

@@ -82,12 +82,12 @@ public class StreamingJob {
         //   			.<String>forMonotonousTimestamps()
 		// 			.<String>withTimestampAssigner((event, timestamp) -> ((Long.valueOf(event.split(",")[1]))*1000) ); //convert sec to ms
 
-		source.assignTimestampsAndWatermarks(new AscendingTimestampExtractor<String>() {
+		source.assignTimestampsAndWatermarks( new AscendingTimestampExtractor<String>() {
 			@Override
 			public long extractAscendingTimestamp(String event) {
-				return ((Long.valueOf(event.split(",")[1]))*1000);
+			  return (Long.valueOf(event.split(",")[1]))*1000;
 			}
-		});
+		  });
 
 		// .<String>withTimestampAssigner((event, timestamp) -> ((Long.valueOf(event.split(",")[1]))*1000)));
 		

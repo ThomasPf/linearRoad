@@ -1,11 +1,11 @@
 package linear_road;
 
-import org.apache.flink.api.java.tuple.Tuple12;
+import org.apache.flink.api.java.tuple.Tuple13;
 import java.util.Objects;
 
-public class EventTuple extends Tuple12<Integer, Short, Integer, Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer>{
+public class EventTuple<A, B, C, D, E, F, G, H, I, J, K, L> extends Tuple13<Integer, Short, Integer, Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer, String>{
 
-    public String segID;
+    public String segID = "init";
     public Long ingestTime = -1L;
     public Boolean isCrossing = Boolean.FALSE;
     public Boolean isStopped = Boolean.FALSE;
@@ -15,7 +15,8 @@ public class EventTuple extends Tuple12<Integer, Short, Integer, Integer, Intege
     public EventTuple(int type, short time, int vid, int speed, int xway, int lane,
     int direction, int segment, int position, String qid,
     int day, int minute) {
-        super(type, time, vid, speed, xway, lane, direction, segment, position, qid, day, minute);
+        // String segID_l = xway + "_" + segment;
+        super(type, time, vid, speed, xway, lane, direction, segment, position, qid, day, minute, xway + "_" + segment);
         this.segID = xway + "_" + segment;
     }
 
@@ -84,7 +85,7 @@ public class EventTuple extends Tuple12<Integer, Short, Integer, Integer, Intege
     }
   
     public String segID() {
-          return this.segID;
+          return this.f12;
     }
 
     @Override

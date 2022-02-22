@@ -1,16 +1,22 @@
-DETECT Xway 1 segment 13 time: 17 vehicles 342, 338 will clear at 1068
-CLEAR Xway 1 segment 13 time: 1068 vehicles 342, 338
-DETECT Xway 1 segment 19 time: 1071 vehicles 2534, 2779 will clear at 2091
-CLEAR Xway 1 segment 19 time: 2091 vehicles 2534, 2779
-DETECT Xway 1 segment 68 time: 2097 vehicles 4195, 3695 will clear at 2889
-CLEAR Xway 1 segment 68 time: 2889 vehicles 4195, 3695
-DETECT Xway 1 segment 100 time: 2896 vehicles 5269, 6101 will clear at 3763
-DETECT Xway 1 segment 45 time: 5 vehicles 807, 975 will clear at 991
-CLEAR Xway 1 segment 45 time: 991 vehicles 807, 975
-DETECT Xway 1 segment 23 time: 1001 vehicles 2271, 2479 will clear at 1920
-CLEAR Xway 1 segment 23 time: 1920 vehicles 2271, 2479
-DETECT Xway 1 segment 97 time: 1924 vehicles 3352, 3652 will clear at 3033
-CLEAR Xway 1 segment 97 time: 3033 vehicles 3352, 3652
-DETECT Xway 1 segment 100 time: 3037 vehicles 4685, 4906 will clear at 4220
-CLEAR Xway 1 segment 100 time: 4220 vehicles 4685, 4906
-DETECT Xway 1 segment 92 time: 4227 vehicles 7749, 8888 will clear at 5106
+DETECT Xway 1 segment 13 time: 7 vehicles 969, 668 will clear at 958
+CLEAR Xway 1 segment 13 time: 958 vehicles 969, 668
+DETECT Xway 1 segment 18 time: 965 vehicles 2518, 2372 will clear at 1696
+CLEAR Xway 1 segment 18 time: 1696 vehicles 2518, 2372
+DETECT Xway 1 segment 32 time: 1703 vehicles 3613, 3890 will clear at 2641
+CLEAR Xway 1 segment 32 time: 2641 vehicles 3613, 3890
+DETECT Xway 1 segment 43 time: 2648 vehicles 5711, 5538 will clear at 3810
+DETECT Xway 1 segment 45 time: 7 vehicles 362, 45 will clear at 1170
+CLEAR Xway 1 segment 45 time: 1170 vehicles 362, 45
+DETECT Xway 1 segment 61 time: 1173 vehicles 1830, 2381 will clear at 2355
+CLEAR Xway 1 segment 61 time: 2355 vehicles 1830, 2381
+DETECT Xway 1 segment 65 time: 2361 vehicles 4208, 4229 will clear at 3249
+CLEAR Xway 1 segment 65 time: 3249 vehicles 4208, 4229
+DETECT Xway 1 segment 20 time: 3252 vehicles 6938, 6804 will clear at 3969
+DETECT Xway 1 segment 40 time: 3 vehicles 568, 719 will clear at 1079
+CLEAR Xway 1 segment 40 time: 1079 vehicles 568, 719
+DETECT Xway 1 segment 77 time: 1083 vehicles 1904, 2335 will clear at 1808
+CLEAR Xway 1 segment 77 time: 1808 vehicles 1904, 2335
+DETECT Xway 1 segment 67 time: 1812 vehicles 3132, 3985 will clear at 2822
+CLEAR Xway 1 segment 67 time: 2822 vehicles 3132, 3985
+DETECT Xway 1 segment 66 time: 2826 vehicles 5802, 5229 will clear at 3598
+CLEAR Xway 1 segment 66 time: 3598 vehicles 5802, 5229
