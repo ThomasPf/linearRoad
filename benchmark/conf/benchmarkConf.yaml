@@ -2,7 +2,7 @@
 # Licensed under the terms of the Apache License 2.0. Please see LICENSE file in the project root for terms.
 
 kafka.brokers:
-    - "192.168.20.5"
+    - "127.0.0.1"
 kafka.port: 9092
 kafka.topic: "antonis"
 kafka.partitions: 6
@@ -10,11 +10,11 @@ kafka.zookeeper.path: /
 kafka.group.id: "lr_kafka_client"
 
 zookeeper.servers:
-    - "192.168.20.5"
+    - "127.0.0.1"
 zookeeper.port: 2181
 
 redis.host: "127.0.0.1"
 #redis.host: "192.168.20.2"
-redis.cluster: true
+redis.cluster: false
 
 monitor.operators: false

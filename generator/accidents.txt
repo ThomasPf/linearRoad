@@ -1,0 +1,7 @@
+DETECT Xway 1 segment 22 time: 4 vehicles 572, 988 will clear at 1080
+CLEAR Xway 1 segment 22 time: 1080 vehicles 572, 988
+DETECT Xway 1 segment 98 time: 1089 vehicles 1393, 1246 will clear at 2064
+CLEAR Xway 1 segment 98 time: 2064 vehicles 1393, 1246
+DETECT Xway 1 segment 90 time: 2070 vehicles 4417, 3506 will clear at 3038
+CLEAR Xway 1 segment 90 time: 3038 vehicles 4417, 3506
+DETECT Xway 1 segment 91 time: 3041 vehicles 4229, 4702 will clear at 4112

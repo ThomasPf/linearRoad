@@ -1,16 +1,21 @@
 package linear_road;
 
-import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.TimeCharacteristic;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.timestamps.AscendingTimestampExtractor;
+import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
+import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.util.serialization.SimpleStringSchema;
-import org.apache.flink.api.common.eventtime.WatermarkStrategy;
-import linear_road.RichOps.*;
-import linear_road.RichOps.SegmentStats.*;
 
-import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
-import org.apache.flink.streaming.api.TimeCharacteristic;
+import linear_road.RichOps.AccidentManager;
+import linear_road.RichOps.InputParser;
+import linear_road.RichOps.TollCalculator;
+import linear_road.RichOps.VehicleStateMemory;
+import linear_road.RichOps.SegmentStats.SegStats;
+import linear_road.RichOps.SegmentStats.SegStatsProcessWindow;
+import linear_road.RichOps.SegmentStats.SegStatsWindowAggregate;
 
 /**
  * 	Antonis Papaioannou
@@ -76,11 +81,16 @@ public class StreamingJob {
 															new SimpleStringSchema(),
 															config.getParameters().getProperties());
 	
-		WatermarkStrategy<String> wmStrategy = WatermarkStrategy
-          			.<String>forMonotonousTimestamps()
-					.<String>withTimestampAssigner((event, timestamp) -> ((Long.valueOf(event.split(",")[1]))*1000) ); //convert sec to ms
+		// WatermarkStrategy<String> wmStrategy = WatermarkStrategy
+        //   			.<String>forMonotonousTimestamps()
+		// 			.<String>withTimestampAssigner((event, timestamp) -> ((Long.valueOf(event.split(",")[1]))*1000) ); //convert sec to ms
 
-		source.assignTimestampsAndWatermarks(wmStrategy);
+		source.assignTimestampsAndWatermarks( new AscendingTimestampExtractor<String>() {
+			@Override
+			public long extractAscendingTimestamp(String event) {
+			  return (Long.valueOf(event.split(",")[1]))*1000;
+			}
+		  });
 									
 		return env.addSource(source, "kafkaSrc");
 	}
