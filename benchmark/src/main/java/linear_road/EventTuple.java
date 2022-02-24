@@ -1,27 +1,32 @@
 package linear_road;
 
-import org.apache.flink.api.java.tuple.Tuple13;
+import org.apache.flink.api.java.tuple.Tuple18;
 import java.util.Objects;
 
-public class EventTuple<A, B, C, D, E, F, G, H, I, J, K, L> extends Tuple13<Integer, Short, Integer, Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer, String>{
+public class EventTuple extends Tuple18<Integer, Short, Integer, Integer, Integer,
+ Integer, Integer, Integer, Integer, 
+ String, Integer, Integer, String, Long, Boolean, Boolean, Integer, Boolean>{
 
-    public String segID = "init";
-    public Long ingestTime = -1L;
-    public Boolean isCrossing = Boolean.FALSE;
-    public Boolean isStopped = Boolean.FALSE;
-    public Integer samePositionCounter = 1;
-    public boolean cleared = false;
+    // public String segID = "init";
+    // public Long ingestTime = -1L;
+    // public Boolean isCrossing = Boolean.FALSE;
+    // public Boolean isStopped = Boolean.FALSE;
+    // public Integer samePositionCounter = 1;
+    // public boolean cleared = false;
     
     public EventTuple(int type, short time, int vid, int speed, int xway, int lane,
     int direction, int segment, int position, String qid,
     int day, int minute) {
         // String segID_l = xway + "_" + segment;
-        super(type, time, vid, speed, xway, lane, direction, segment, position, qid, day, minute, xway + "_" + segment);
-        this.segID = xway + "_" + segment;
+        super(type, time, vid, speed, xway, lane, direction, segment, 
+        position, qid, day, minute, xway + "_" + segment,
+        -1L, Boolean.FALSE, Boolean.FALSE, 1, Boolean.FALSE
+        );
+        // this.segID = xway + "_" + segment;
     }
 
     public void setCleared(Boolean status){
-        this.cleared = status;
+        this.f17 = status;
     }
     
     public int getType() { 
@@ -75,18 +80,40 @@ public class EventTuple<A, B, C, D, E, F, G, H, I, J, K, L> extends Tuple13<Inte
     public int minute() {
         return this.f11;
     }
-
-    public boolean isStopped() {
-        return this.isStopped;
-    }
-  
-    public boolean isCrossing() {
-        return isCrossing;
-    }
   
     public String segID() {
           return this.f12;
     }
+
+    public Long ingestTime(){
+        return this.f13;
+    }
+
+    public void setIngestTime(long time) {
+        this.setField(time, 13);
+    }
+
+    public boolean isCrossing() {
+        return this.f14;
+    }
+
+    public void setCrossing(Boolean value)
+    {
+        this.setField(value, 14);
+    }
+
+    public boolean isStopped() {
+        return this.f15;
+    }
+
+    public int samePositionCounter() {
+        return this.f16;
+    }
+
+    public boolean cleared() {
+        return this.f17;
+    }
+
 
     @Override
     public String toString() {

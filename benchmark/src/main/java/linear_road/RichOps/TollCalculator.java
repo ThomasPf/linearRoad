@@ -67,7 +67,7 @@ public class TollCalculator extends RichFlatMapFunction<EventTuple, EventTuple> 
         if (monitorOp) {
             long now_nano = System.nanoTime();
             long now_ms = System.currentTimeMillis();
-            long emit = now_ms - value.ingestTime;
+            long emit = now_ms - value.ingestTime();
             long db_latency = now_nano - start_ts_nano;
             performanceReporter.addLatency(db_latency, emit);
             // System.out.println(LoggingUtil.timestamp() + " " + key + " Toll: " + toll + " latency = " + emit);

@@ -40,14 +40,16 @@ public class VehicleStateMemory extends RichMapFunction<EventTuple, EventTuple> 
             
         // New Vehicle (not seen before)
         if (e == null) {
-            value.isCrossing = true;
+            // value.isCrossing = true;
+            value.setCrossing(true);
             previousPositionReport.put(value.getVid(), value);
             return value;
         }
 
         boolean moving = true;
         if ( (e.segment() != value.segment()) || (e.lane() == 4) ) { // if the car exited after last position report
-            value.isCrossing = true;
+            // value.isCrossing = true;
+            value.setCrossing(true);
         } else {
             if ((e.xway() == value.xway()) && (e.lane() == value.lane()) &&
                 (e.segment() == value.segment()) && (e.position() == value.position())) {
@@ -60,14 +62,14 @@ public class VehicleStateMemory extends RichMapFunction<EventTuple, EventTuple> 
                 }
             }
 
-            if (value.samePositionCounter >= 4) {
+            if (value.samePositionCounter() >= 4) {
                 value.isStopped = true;
                 // System.out.println("Accident: " + value.toString());
 
                 if (debug) {
                     System.out.println(LoggingUtil.pointInCode() + " vid " + value.vid() + 
                                     " stopped pos (" + value.xway() + "," + value.segment() + ") " +
-                                    "samePosition " + value.samePositionCounter + 
+                                    "samePosition " + value.samePositionCounter() + 
                                     " currTime " + value.time());
                 }
             }
@@ -87,13 +89,13 @@ public class VehicleStateMemory extends RichMapFunction<EventTuple, EventTuple> 
             }
         }
 
-        value.samePositionCounter = e.samePositionCounter; 
+        value.samePositionCounter = e.samePositionCounter(); 
         previousPositionReport.put(value.getVid(), value);
 
         if (monitorOp) {
             long now_nano = System.nanoTime();
             long now_ms = System.currentTimeMillis();
-            performanceReporter.addLatency(now_nano - start_ts_nano, now_ms - value.ingestTime);
+            performanceReporter.addLatency(now_nano - start_ts_nano, now_ms - value.ingestTime());
         }
 
         return value;

@@ -40,7 +40,7 @@ public class InputParser extends RichFlatMapFunction<String, EventTuple> {
         int minute = (time / 60 + 1); 
 
         EventTuple e = new EventTuple(type, time, vid, speed, xway, lane, direction, segment, position, qid, day, minute);
-        e.ingestTime = System.currentTimeMillis();
+        e.setIngestTime(System.currentTimeMillis());
         return e;
       }
  }

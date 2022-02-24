@@ -51,7 +51,7 @@ public class StreamingJob {
 
 		
 		DataStream<EventTuple> partitionedStateOnSegment = vehicleState
-				.keyBy(s -> s.segID);
+				.keyBy(s -> s.segID());
 
 		// Accident Notification
 		partitionedStateOnSegment
@@ -59,7 +59,7 @@ public class StreamingJob {
 
 		// Toll notification
 		partitionedStateOnSegment
-				.filter(s -> s.isCrossing)
+				.filter(s -> s.isCrossing())
 				.flatMap(new TollCalculator(config)).name("Toll");
 
 		// execute program
