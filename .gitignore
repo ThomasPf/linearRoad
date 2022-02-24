@@ -17,3 +17,7 @@ buildNumber.properties
 .classpath
 
 .vscode
+# redis/
+redis-stable/
+kafka*/
+flink*/
