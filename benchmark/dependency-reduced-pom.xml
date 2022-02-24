@@ -137,10 +137,10 @@
     </dependency>
   </dependencies>
   <properties>
+    <scala.binary.version>2.11</scala.binary.version>
     <snakeyaml.version>1.11</snakeyaml.version>
     <java.version>1.8</java.version>
-    <scala.binary.version>2.11</scala.binary.version>
-    <flink.version>1.7.2</flink.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <flink.version>1.7.2</flink.version>
   </properties>
 </project>

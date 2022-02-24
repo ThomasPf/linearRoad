@@ -3,7 +3,7 @@
 
 kafka.brokers:
     - "127.0.0.1"
-kafka.port: 9092
+kafka.port: 9094
 kafka.topic: "antonis"
 kafka.partitions: 6
 kafka.zookeeper.path: /
@@ -15,6 +15,6 @@ zookeeper.port: 2181
 
 redis.host: "127.0.0.1"
 #redis.host: "192.168.20.2"
-redis.cluster: false
+redis.cluster: true
 
 monitor.operators: false
